@@ -10,7 +10,7 @@ var server = http.createServer((req, res) => {
       res.write(html);
       res.end();
     });
-  } else if (req.url == "/urunler") {
+  } else if (req.url == "/products") {
     fs.readFile("urunler.html", (err, html) => {
       res.write(html);
       res.end();
