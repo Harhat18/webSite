@@ -1,28 +1,40 @@
-// request - response => server
+const express = require("express");
+const app = express();
 
-//http
+app.set("view engine", "ejs");
 
-var http = require("http"); // node modules => http, fs ,os
-var fs = require("fs"); // node modules
-var server = http.createServer((req, res) => {
-  if (req.url == "/") {
-    fs.readFile("index.html", (err, html) => {
-      res.write(html);
-      res.end();
-    });
-  } else if (req.url == "/products") {
-    fs.readFile("urunler.html", (err, html) => {
-      res.write(html);
-      res.end();
-    });
-  } else {
-    fs.readFile("404.html", (err, html) => {
-      res.write(html);
-      res.end();
-    });
-  }
+const data = [
+  {
+    id: 1,
+    name: "iphone 14",
+    price: "2000",
+  },
+  {
+    id: 2,
+    name: "iphone 15",
+    price: "3000",
+  },
+  {
+    id: 3,
+    name: "iphone 16",
+    price: "4000",
+  },
+];
+
+//routes
+
+app.use("/products/:id", function (req, res) {
+  res.render("product-details");
 });
 
-server.listen(3000, () => {
-  console.log("node.js server at port 3000");
+app.use("/products", function (req, res) {
+  res.render("products", { urunler: data });
+});
+
+app.use("/", function (req, res) {
+  res.render("index");
+});
+
+app.listen(3000, () => {
+  console.log("listening on port 3000");
 });
