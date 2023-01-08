@@ -11,6 +11,7 @@ const data = [
     price: "2000",
     isActive: true,
     imageUrl: "1.jpeg",
+    isHome: false,
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const data = [
     price: "3000",
     isActive: false,
     imageUrl: "2.jpeg",
+    isHome: true,
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const data = [
     price: "4000",
     isActive: true,
     imageUrl: "3.jpeg",
+    isHome: true,
   },
 ];
 
@@ -40,7 +43,7 @@ app.use("/products", function (req, res) {
 });
 
 app.use("/", function (req, res) {
-  res.render("index");
+  res.render("index", { urunler: data });
 });
 
 app.listen(3000, () => {

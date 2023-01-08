@@ -9,6 +9,7 @@
   </head>
   <body>
     <div class="container mt-3">
+       <h1>Ürünler</h1>
       <div class="row">
         <div class="col-12">
           <% urunler.forEach(urun => { %>
@@ -20,14 +21,17 @@
                 </div>
                 <div class="col-8">
                   <div class="card-body">
-                    <h5 class="card-title"><%=urun.name%></h5>
+                    <h5 class="card-title">
+                      <a href="/products/<%= urun.id %> "> <%=urun.name%></a>
+                     
+                    </h5>
                     <p class="card-text"><%=urun.price%></p>
                   </div>
-                </div>ß
+                </div>
               </div>
             </div>
           <% }) %>
-          </div>ß
+          </div>
       </div>
     </div>
   </body>
