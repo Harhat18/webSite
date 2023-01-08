@@ -8,16 +8,19 @@ const data = [
     id: 1,
     name: "iphone 14",
     price: "2000",
+    isActive: true,
   },
   {
     id: 2,
     name: "iphone 15",
     price: "3000",
+    isActive: false,
   },
   {
     id: 3,
     name: "iphone 16",
     price: "4000",
+    isActive: true,
   },
 ];
 
